@@ -1,5 +1,4 @@
 header{
-    /* height: 80px; */
     padding: 8.5px 25px 0 24.5px;
     background-color: var(--clr1);
 }
@@ -10,6 +9,5 @@ header .nav-list a{
     display: inline-block;
     height: 65px;
     margin-left: 5px;
-
 
 }

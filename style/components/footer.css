@@ -6,3 +6,7 @@ footer .footer-content{
     height: 155px;
     flex-direction: column;
 }
+
+footer small{
+    margin-top: 20px;
+}

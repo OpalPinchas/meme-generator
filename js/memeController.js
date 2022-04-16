@@ -5,6 +5,7 @@ var gCtx
 var gStartPos
 var gRect
 
+
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 
@@ -29,8 +30,8 @@ function renderMeme() {
             drawText(line, linePos)
             updateLinePos(idx, linePos.x, linePos.y)
         })
-        
-        drawRect()
+
+          drawRect()
         document.querySelector('.color').value = line.stroke
         const elInput = document.querySelector('.txt-input')
         elInput.value = ''
