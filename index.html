@@ -43,24 +43,32 @@
             <section class="line-area flex align-center">
                 <input type="text" class="txt-input" onkeydown="onLineChange(event)">
                 <div>
-                    <button class="editor-btn" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="editor-btn" onclick="onSwitchLine()"><img
+                            src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button class="editor-btn" onclick="onAddLine()"><img src="ICONS/add.png" alt=""></button>
                     <button class="editor-btn" onclick="onDeleteLine()"><img src="ICONS/trash.png" alt=""></button>
                 </div>
 
             </section>
             <section class="style-area flex justify-center">
-                <button class="editor-btn" onclick="onFontSizeChange(1)"><img src="ICONS/increase font - icon.png" alt=""></button>
-                <button class="editor-btn"  onclick="onFontSizeChange(-1)"><img src="ICONS/decrease font - icon.png" alt=""></button>
-                
-                <button class="editor-btn" onclick="onAlignChange('right')"><img src="ICONS/align-to-left.png" alt=""></button>
-                <button class="editor-btn" onclick="onAlignChange('center')"><img src="ICONS/center-text-alignment.png" alt=""></button>
-                <button class="editor-btn" onclick="onAlignChange('left')"><img src="ICONS/align-to-right.png" alt=""></button>
+                <button class="editor-btn" onclick="onFontSizeChange(1)"><img src="ICONS/increase font - icon.png"
+                        alt=""></button>
+                <button class="editor-btn" onclick="onFontSizeChange(-1)"><img src="ICONS/decrease font - icon.png"
+                        alt=""></button>
+
+                <button class="editor-btn" onclick="onAlignChange('right')"><img src="ICONS/align-to-left.png"
+                        alt=""></button>
+                <button class="editor-btn" onclick="onAlignChange('center')"><img src="ICONS/center-text-alignment.png"
+                        alt=""></button>
+                <button class="editor-btn" onclick="onAlignChange('left')"><img src="ICONS/align-to-right.png"
+                        alt=""></button>
                 <button class="editor-btn"><input class="color" type="color"></button>
             </section>
             <section class="save-area flex justify-center">
                 <button onclick="onSaveMeme()">SAVE</button>
-                <button>DOWNLOAD</button>
+                <button>
+                    <a href="#" onclick="onDownloadCanvas(this)" download="">DOWNLOAD</a>
+                </button>
             </section>
         </section>
     </section>
@@ -69,15 +77,15 @@
         <section class="footer-content flex main-layout align-center justify-center">
             <div class="logo"><img src="LOGO/LOGO.png" alt=""></div>
             <small>
-                 all rights reserved 2019
+                all rights reserved 2019
             </small>
-               
+
         </section>
     </footer>
 
 
-     <script src="js/storage.service.js"></script>
-     <script src="js/utils.js"></script>
+    <script src="js/storage.service.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/myMemeController.js"></script>

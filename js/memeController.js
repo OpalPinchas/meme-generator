@@ -52,10 +52,10 @@ function addListeners() {
 }
 
 function onSaveMeme() {
-    saveMeme(getCanvasUrl())
+    saveMeme(getCanvasDataUrl())
 }
 
-function getCanvasUrl() {
+function getCanvasDataUrl() {
     return gElCanvas.toDataURL()
 }
 
@@ -199,6 +199,13 @@ function onMemeSelect(id) {
     setMeme(id)
     renderEditor()
 }
+
+function onDownloadCanvas(elLink){
+  const data = getCanvasDataUrl()
+  elLink.href = data
+  elLink.download = 'canvas.jpg'
+}
+
 
 function renderEditor(){
     document.querySelector('.main').hidden = true
