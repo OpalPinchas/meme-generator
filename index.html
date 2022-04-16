@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprint-2</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body onload="renderGallery()">
+    <header>
+        <section class="header-content flex space-between align-center main-layout">
+            <div class="logo">logo</div>
+            <div class="nav">
+                <ul class="nav-list clean-list flex space-between align-center">
+                    <li><a href="#" onclick="renderGallery()">Gallery</a></li>
+                    <li><a href="#">My Memes</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <main class="main">
+        <section class="search main-layout">
+            <h1>search</h1>
+        </section>
+
+        <div class="gallery-container">
+            <section class="gallery main-layout grid"></section>
+        </div>
+
+    </main>
+
+
+    <section class="editor-container">
+        <div class="canvas-container flex align-center justify-center">
+            <canvas id="canvas" height="400" width="400"></canvas>
+        </div>
+        <section class="control-box">
+            <section class="line-area flex align-center">
+                <input type="text" class="txt-input" onkeydown="onLineChange(event)">
+                <div>
+                    <button class="editor-btn" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="editor-btn" onclick="onAddLine()"><img src="ICONS/add.png" alt=""></button>
+                    <button class="editor-btn" onclick="onDeleteLine()"><img src="ICONS/trash.png" alt=""></button>
+                </div>
+
+            </section>
+            <section class="style-area flex justify-center">
+                <button class="editor-btn" onclick="onFontSizeChange(1)"><img src="ICONS/increase font - icon.png" alt=""></button>
+                <button class="editor-btn"  onclick="onFontSizeChange(-1)"><img src="ICONS/decrease font - icon.png" alt=""></button>
+                
+                <button class="editor-btn" onclick="onAlignChange('right')"><img src="ICONS/align-to-left.png" alt=""></button>
+                <button class="editor-btn" onclick="onAlignChange('center')"><img src="ICONS/center-text-alignment.png" alt=""></button>
+                <button class="editor-btn" onclick="onAlignChange('left')"><img src="ICONS/align-to-right.png" alt=""></button>
+                <button class="editor-btn"><input class="color" type="color"></button>
+
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <section class="footer-content flex main-layout align-center justify-center">
+            <div class="logo">logo</div>
+            <div>
+                all rights reserved 2019
+            </div>
+
+        </section>
+    </footer>
+
+
+
+    <script src="js/memeService.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/memeController.js"></script>
+</body>
+
+</html>

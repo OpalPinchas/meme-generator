@@ -1,0 +1,57 @@
+.editor-container{
+    height: 75vh;
+    background-color: var(--clr4);
+}
+
+.control-box{
+   width: 450px;
+   height: 80%;
+    border: 1px solid black;
+    margin: auto;
+}
+
+
+.editor-container>*{
+    flex-grow: 1;
+}
+
+.control-box .line-area input{
+    height: 3.125rem;
+    width: 60%;
+    border-radius: 0.375rem;
+    font-size: 1.25rem;
+    background-color: var(--clr2);
+    border: none;
+    text-align: center;
+}
+
+.control-box .line-area{
+    flex-direction: column;
+    margin-bottom: 40px;
+    row-gap: 1rem;
+}
+
+
+
+.control-box .editor-btn{
+    height: 3.125rem;
+    width: 3.125rem;
+    background-color: var(--clr2);
+    border-radius: 0.375rem;
+    border: none;
+    margin-left: 4px;
+   margin-right: 4px;
+   font-size: 1.7rem;
+
+}
+
+input.color{
+    height: 2.3rem;
+    width: 2.3rem;
+    background-color:rgba(240, 248, 255, 0);
+    border: none;
+}
+
+
+
+

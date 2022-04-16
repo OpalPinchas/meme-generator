@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+img{
+    width: 100%;
+   
+}
+
+a {
+    color: var(--clr2);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: var(--clr3);
+}
