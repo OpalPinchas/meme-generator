@@ -4,6 +4,7 @@ var gElCanvas
 var gCtx
 var gStartPos
 var gRect
+var isMemeSelected = false
 
 
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
@@ -13,12 +14,14 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 
 function renderMeme() {
-
     const meme = getMeme()
+    var img = new Image()
     const imgId = meme.selectedImgId
     const line = meme.lines[meme.selectedLineIdx]
-    var img = new Image()
-    img.src = `meme-imgs/${imgId}.jpg`;
+    img.src = `meme-imgs/${imgId}.jpg`
+
+    
+
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const lines = meme.lines
@@ -31,7 +34,7 @@ function renderMeme() {
             updateLinePos(idx, linePos.x, linePos.y)
         })
 
-          drawRect()
+        drawRect()
         document.querySelector('.color').value = line.stroke
         const elInput = document.querySelector('.txt-input')
         elInput.value = ''
@@ -49,8 +52,18 @@ function addListeners() {
     })
 }
 
+function onSaveMeme() {
+    saveMeme(getCanvasUrl())
+}
+
+function getCanvasUrl() {
+    return gElCanvas.toDataURL()
+}
+
 
 function onImgSelect(imgId) {
+    isMemeSelected = false
+
     document.querySelector('.main').hidden = true
     document.querySelector('.editor-container').classList.add('flex')
     document.querySelector('.color').addEventListener('change', onColorChange)
@@ -58,7 +71,7 @@ function onImgSelect(imgId) {
     gElCanvas = document.querySelector('#canvas');
     gCtx = gElCanvas.getContext('2d');
     resizeCanvas()
-   
+
     addListeners()
 
     renderMeme()
@@ -75,7 +88,7 @@ function onUp() {
     setLineDrag(false)
 }
 
-function onAlignChange(val){
+function onAlignChange(val) {
     alignChange(val)
     renderMeme()
 
@@ -156,7 +169,7 @@ function drawText(line, linePos) {
 function drawRect() {
     const line = getLine()
     const y = line.pos.y - line.size * 1.3 / 2
-    const x = line.pos.x - (line.size * line.txt.length * 0.5) 
+    const x = line.pos.x - (line.size * line.txt.length * 0.5)
     gCtx.beginPath()
     gCtx.rect(x, y, (line.size * line.txt.length), line.size * 1.3)
     gCtx.strokeStyle = '#181b1bd6'
@@ -193,6 +206,20 @@ function getEvPos(ev) {
     return pos
 }
 
+function onMemeSelect(id) {
+    isMemeSelected = true
+    setMeme(id)
+    document.querySelector('.main').hidden = true
+    document.querySelector('.editor-container').classList.add('flex')
+    document.querySelector('.color').addEventListener('change', onColorChange)
+    gElCanvas = document.querySelector('#canvas');
+    gCtx = gElCanvas.getContext('2d');
+    resizeCanvas()
+
+    addListeners()
+
+    renderMeme()
+}
 
 
 

@@ -20,6 +20,8 @@ var gMeme = {
 
 }
 
+var gSavedMemes
+
 function setLineTxt(key) {
     let line = gMeme.lines[gMeme.selectedLineIdx]
     let txt = line.txt
@@ -170,5 +172,24 @@ function moveLine(dx, dy) {
     const line = getLine()
     line.pos.x += dx
     line.pos.y += dy
+}
+
+function saveMeme(memeUrl){
+    if (!gSavedMemes){
+        gSavedMemes = []
+    }
+    const meme = {
+        id: makeId(),
+        memeData: gMeme,
+        memeUrl
+    }
+    gSavedMemes.push(meme)
+    saveToStorage('memes' , gSavedMemes)
+}
+
+function setMeme(id){
+    gSavedMemes = loadFromStorage('memes')
+  gMeme=  gSavedMemes.find(meme => meme.id === id).memeData
+    console.log(gMeme)
 }
 

@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 function renderGallery() {
     const elGallery = document.querySelector('.gallery')
     const elEditor = document.querySelector('.editor-container')

@@ -16,7 +16,7 @@
             <div class="nav">
                 <ul class="nav-list clean-list flex space-between align-center">
                     <li><a href="#" onclick="renderGallery()">Gallery</a></li>
-                    <li><a href="#">My Memes</a></li>
+                    <li><a href="#" onclick="renderMyMemes()">My Memes</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </div>
@@ -57,7 +57,10 @@
                 <button class="editor-btn" onclick="onAlignChange('center')"><img src="ICONS/center-text-alignment.png" alt=""></button>
                 <button class="editor-btn" onclick="onAlignChange('left')"><img src="ICONS/align-to-right.png" alt=""></button>
                 <button class="editor-btn"><input class="color" type="color"></button>
-
+            </section>
+            <section class="save-area flex justify-center">
+                <button onclick="onSaveMeme()">SAVE</button>
+                <button>DOWNLOAD</button>
             </section>
         </section>
     </section>
@@ -73,9 +76,11 @@
     </footer>
 
 
-
+     <script src="js/storage.service.js"></script>
+     <script src="js/utils.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>
+    <script src="js/myMemeController.js"></script>
     <script src="js/memeController.js"></script>
 </body>
 
