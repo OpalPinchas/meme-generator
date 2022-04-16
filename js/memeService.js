@@ -100,7 +100,6 @@ function updateLinePos(idx, x, y) {
 }
 
 
-
 function getMeme() {
     return gMeme
 }
@@ -174,22 +173,20 @@ function moveLine(dx, dy) {
     line.pos.y += dy
 }
 
-function saveMeme(memeUrl){
-    if (!gSavedMemes){
-        gSavedMemes = []
-    }
+function saveMeme(memeUrl) {
+    gSavedMemes = loadFromStorage('memes')
     const meme = {
         id: makeId(),
         memeData: gMeme,
         memeUrl
     }
     gSavedMemes.push(meme)
-    saveToStorage('memes' , gSavedMemes)
+    saveToStorage('memes', gSavedMemes)
 }
 
-function setMeme(id){
+function setMeme(id) {
     gSavedMemes = loadFromStorage('memes')
-  gMeme=  gSavedMemes.find(meme => meme.id === id).memeData
+    gMeme = gSavedMemes.find(meme => meme.id === id).memeData
     console.log(gMeme)
 }
 

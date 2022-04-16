@@ -4,7 +4,6 @@ var gElCanvas
 var gCtx
 var gStartPos
 var gRect
-var isMemeSelected = false
 
 
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
@@ -62,19 +61,8 @@ function getCanvasUrl() {
 
 
 function onImgSelect(imgId) {
-    isMemeSelected = false
-
-    document.querySelector('.main').hidden = true
-    document.querySelector('.editor-container').classList.add('flex')
-    document.querySelector('.color').addEventListener('change', onColorChange)
     setImg(imgId)
-    gElCanvas = document.querySelector('#canvas');
-    gCtx = gElCanvas.getContext('2d');
-    resizeCanvas()
-
-    addListeners()
-
-    renderMeme()
+    renderEditor()
 }
 
 function onDown(ev) {
@@ -133,12 +121,13 @@ function onSwitchLine() {
 
 function resizeCanvas() {
     var elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth * 0.8
-    gElCanvas.height = gElCanvas.width
+    const length = Math.min(elContainer.clientWidth, elContainer.clientHeight) * 0.8
+    gElCanvas.width = length
+    gElCanvas.height = length
+    console.log("resizeCanvas", gElCanvas.height, gElCanvas.width)
 }
 
 function onLineChange(ev) {
-
     setLineTxt(ev.key)
     renderMeme()
 }
@@ -207,17 +196,19 @@ function getEvPos(ev) {
 }
 
 function onMemeSelect(id) {
-    isMemeSelected = true
     setMeme(id)
+    renderEditor()
+}
+
+function renderEditor(){
     document.querySelector('.main').hidden = true
     document.querySelector('.editor-container').classList.add('flex')
     document.querySelector('.color').addEventListener('change', onColorChange)
-    gElCanvas = document.querySelector('#canvas');
-    gCtx = gElCanvas.getContext('2d');
+    gElCanvas = document.querySelector('#canvas')
+    gCtx = gElCanvas.getContext('2d')
+
     resizeCanvas()
-
     addListeners()
-
     renderMeme()
 }
 
