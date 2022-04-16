@@ -24,9 +24,9 @@
     </header>
 
     <main class="main">
-        <section class="search main-layout">
+        <!-- <section class="search main-layout">
             <h1>search</h1>
-        </section>
+        </section> -->
 
         <div class="gallery-container">
             <section class="gallery main-layout grid"></section>
@@ -40,6 +40,7 @@
             <canvas id="canvas" height="400" width="400"></canvas>
         </div>
         <section class="control-box">
+            <div><button class="btn x" onclick="renderGallery()">x</button></div>
             <section class="line-area flex align-center">
                 <input type="text" class="txt-input" onkeydown="onLineChange(event)">
                 <div>
@@ -64,12 +65,17 @@
                         alt=""></button>
                 <button class="editor-btn"><input class="color" type="color"></button>
             </section>
-            <section class="save-area flex justify-center">
-                <button onclick="onSaveMeme()">SAVE</button>
-                <button>
+            <section class="save-area flex justify-center align-center">
+                <button class="btn" onclick="onSaveMeme()">SAVE</button>
+                <button class="btn">
                     <a href="#" onclick="onDownloadCanvas(this)" download="">DOWNLOAD</a>
                 </button>
+                <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
             </section>
+           
+              
+           <a class="user-msg" href=""></a>
+            <div class="share-container"></div>
         </section>
     </section>
 

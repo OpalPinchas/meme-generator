@@ -14,9 +14,13 @@ img{
 a {
     color: var(--clr2);
     text-decoration: none;
-
 }
 
 a:hover {
     color: var(--clr3);
+    cursor: pointer;
+}
+
+button :hover{
+    cursor: pointer;
 }
