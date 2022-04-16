@@ -124,7 +124,6 @@ function resizeCanvas() {
     const length = Math.min(elContainer.clientWidth, elContainer.clientHeight) * 0.8
     gElCanvas.width = length
     gElCanvas.height = length
-    console.log("resizeCanvas", gElCanvas.height, gElCanvas.width)
 }
 
 function onLineChange(ev) {
@@ -227,14 +226,15 @@ function uploadImg() {
 
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        const elMsg = document.querySelector('.user-msg')
-        elMsg.innerText = 'Open Img'
-        elMsg.href = uploadedImgUrl
 
         document.querySelector('.share-container').innerHTML = `
-        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+        <a id="my-share" hidden class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
            Share   
         </a>`
+
+        const shareEl = document.querySelector('#my-share')
+        shareEl.click()
+
     }
     doUploadImg(imgDataUrl, onSuccess);
 }
