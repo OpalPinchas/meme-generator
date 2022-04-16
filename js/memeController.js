@@ -28,11 +28,9 @@ function renderMeme() {
                     (idx === 1) ? { x: gElCanvas.width / 2, y: gElCanvas.height - 50 } : { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
             drawText(line, linePos)
             updateLinePos(idx, linePos.x, linePos.y)
-            // if(idx=== meme.selectedLineIdx){
-            //     drawRect()
-            // }
-
         })
+        
+        drawRect()
         document.querySelector('.color').value = line.stroke
         const elInput = document.querySelector('.txt-input')
         elInput.value = ''
@@ -147,7 +145,6 @@ function drawText(line, linePos) {
     gCtx.fillStyle = fill
     gCtx.lineWidth = 2;
 
-
     gCtx.fillText(txt, linePos.x, linePos.y)
     gCtx.strokeText(txt, linePos.x, linePos.y)
 
@@ -157,12 +154,13 @@ function drawText(line, linePos) {
 
 function drawRect() {
     const line = getLine()
-
     const y = line.pos.y - line.size * 1.3 / 2
-    const x = line.pos.x - (line.size * line.txt.length * 0.4)
-    gCtx.rect(x, y, (line.size * line.txt.length * 0.8), line.size * 1.3)
+    const x = line.pos.x - (line.size * line.txt.length * 0.5) 
+    gCtx.beginPath()
+    gCtx.rect(x, y, (line.size * line.txt.length), line.size * 1.3)
+    gCtx.strokeStyle = '#181b1bd6'
+    gCtx.closePath()
     gCtx.stroke()
-
 }
 
 
