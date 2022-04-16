@@ -20,7 +20,6 @@ var gMeme = {
 
 }
 
-
 function setLineTxt(key) {
     let line = gMeme.lines[gMeme.selectedLineIdx]
     let txt = line.txt
