@@ -175,6 +175,7 @@ function moveLine(dx, dy) {
 
 function saveMeme(memeUrl) {
     gSavedMemes = loadFromStorage('memes')
+    if(!gSavedMemes) gSavedMemes = []
     const meme = {
         id: makeId(),
         memeData: gMeme,
